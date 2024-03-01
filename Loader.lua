@@ -116,94 +116,47 @@ function ResetBody(p)
 end
 function TP(p)
 	--Bypass[]
-                if W3 then
-                if (Vector3.new(5742.9169921875, 610.7672729492188, -268.2395935058594)-p.Position).Magnitude < 3000 and (Vector3.new(5742.9169921875, 610.7672729492188, -268.2395935058594)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then --Hydra
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5742.9169921875, 610.7672729492188, -268.2395935058594))
-                        end
-                end
-                if (Vector3.new(-12550.3642578125, 350.5115051269531, -7468.7021484375)-p.Position).Magnitude < 3000 and (Vector3.new(-12550.3642578125, 350.5115051269531, -7468.7021484375)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 5000 then --Big Mansion
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12476.080078125, 374.9144592285156, -7566.93701171875))
-                        end
-                end
-                if (Vector3.new(-5076.99853515625, 314.8587341308594, -3151.824951171875)-p.Position).Magnitude < 3000 and (Vector3.new(-5076.99853515625, 314.8587341308594, -3151.824951171875)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then --Castle on the Sea
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-5076.99853515625, 314.8587341308594, -3151.824951171875))
-                        end
-                end
-                if (Vector3.new(-1990.672607421875, 4532.998046875, -14973.6748046875)-p.Position).Magnitude < 1500 and (Vector3.new(-1990.672607421875, 4532.998046875, -14973.6748046875)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1500 then --Cake Prince
-                    _G.Stop_Tween = true
-                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2149.209228515625, 80.00882720947266, -12402.974609375)
-                end
-                if (Vector3.new(28609.388671875, 14896.8505859375, 105.2657241821289)-p.Position).Magnitude > 1500 and (Vector3.new(28609.388671875, 14896.8505859375, 105.2657241821289)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 1500 then --temple
-                    _G.Stop_Tween = true
-                        TP3(CFrame.new(28609.388671875, 14896.8505859375, 105.2657241821289))
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaceV4Progress","Check")
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaceV4Progress","TeleportBack")
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetLastSpawnPoint","GreatTree")
-
-                end
-                elseif W1 then
-                if (Vector3.new(3864.6884765625, 5.716391563415527, -1926.214111328125)-p.Position).Magnitude < 3500 and (Vector3.new(3864.6884765625, 5.716391563415527, -1926.214111328125)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 5000 then --UnderWater Gate
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.6884765625, 5.716391563415527, -1926.214111328125))
-                        end
-                end
-                if (Vector3.new(61163.8515625, 5.650546073913574, 1819.7841796875)-p.Position).Magnitude < 3000 and (Vector3.new(61163.8515625, 5.650546073913574, 1819.7841796875)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then --UnderWater City
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 5.650546073913574, 1819.7841796875))
-                        end
-                end
-                if (Vector3.new(-7894.61767578125, 5545.8349609375, -380.29119873046875)-p.Position).Magnitude < 3000 and (Vector3.new(-7894.61767578125, 5545.8349609375, -380.29119873046875)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then --Sky2
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61767578125, 5545.8349609375, -380.29119873046875))
-                        end
-                end
-                if (Vector3.new(-4607.82275, 872.54248, -1667.55688)-p.Position).Magnitude < 3000 and (Vector3.new(-4607.82275, 872.54248, -1667.55688)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then --Sky2
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
-                        end
-                end
-                elseif W2 then
-                    if (Vector3.new(923.2125244140625, 125.40035247802734, 32852.83203125)-p.Position).Magnitude < 3000 and (Vector3.new(923.2125244140625, 125.40035247802734, 32852.83203125)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then --Ghost Ship
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.2125244140625, 125.40035247802734, 32852.83203125))
-                        end
-                    end
-                    if (Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062)-p.Position).Magnitude < 3000 and (Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then --Out Ghost Ship
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062))
-                        end
-                    end
-                    if (Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062)-p.Position).Magnitude > 3000 and (Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 3000 then --Out Ghost Ship2
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062))
-                        end
-                    end
-                    if (Vector3.new(-286.6488037109375, 306.130615234375, 596.5967407226562)-p.Position).Magnitude < 2700 and (Vector3.new(-286.6488037109375, 306.130615234375, 596.5967407226562)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 2700 then --ManSion
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-286.6488037109375, 306.130615234375, 596.5967407226562))
-                        end
-                    end
-                    if (Vector3.new(2283.7080078125, 15.277364730834961, 905.8712158203125)-p.Position).Magnitude < 1500 and (Vector3.new(2283.7080078125, 15.277364730834961, 905.8712158203125)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 2000 then --swan
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                            _G.Stop_Tween = true
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(2283.7080078125, 15.277364730834961, 905.8712158203125))
-                        end
-                    end
-                end
+    if W3 then
+        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(-12476.080078125, 374.9144592285156, -7566.93701171875)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-12476.080078125, 374.9144592285156, -7566.93701171875)) --Big Mansion
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(5742.9169921875, 610.7672729492188, -268.2395935058594)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5742.9169921875, 610.7672729492188, -268.2395935058594)) --Hydra Island
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(-5076.99853515625, 314.8587341308594, -3151.824951171875)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-5076.99853515625, 314.8587341308594, -3151.824951171875)) --Castle on the Sea
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(-11993.580078125, 331.8077087402344, -8844.1826171875)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-11993.580078125, 331.8077087402344, -8844.1826171875)) --Canvender T
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(5314.58203125, 22.53643226623535, -125.94227600097656)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(5314.58203125, 22.53643226623535, -125.94227600097656)) --Canvender H
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, 60, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+        elseif (Vector3.new(-1990.672607421875, 4532.998046875, -14973.6748046875)-p.Position).Magnitude < 1500 and (Vector3.new(-1990.672607421875, 4532.998046875, -14973.6748046875)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1500 then --Cake Prince
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2149.209228515625, 80.00882720947266, -12402.974609375)
+        elseif (Vector3.new(28609.388671875, 14896.8505859375, 105.2657241821289)-p.Position).Magnitude > 1500 and (Vector3.new(28609.388671875, 14896.8505859375, 105.2657241821289)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 1500 then --temple
+            TP(CFrame.new(28609.388671875, 14896.8505859375, 105.2657241821289))
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaceV4Progress","Check")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaceV4Progress","TeleportBack")
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetLastSpawnPoint","GreatTree")
+        end
+    elseif W2 then
+        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(923.2125244140625, 125.40035247802734, 32852.83203125)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.2125244140625, 125.40035247802734, 32852.83203125)) --Ghost Ship
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(-286.6488037109375, 306.130615234375, 596.5967407226562)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-286.6488037109375, 306.130615234375, 596.5967407226562)) --ManSion
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(2283.7080078125, 15.277364730834961, 905.8712158203125)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(2283.7080078125, 15.277364730834961, 905.8712158203125)) --Sawn
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6505.7294921875, 83.31233978271484, -130.24234008789062)) --Out Ghost Ship
+        end
+    elseif W1 then
+        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(3864.6884765625, 5.716391563415527, -1926.214111328125)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.6884765625, 5.716391563415527, -1926.214111328125)) --Gate
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(61163.8515625, 5.650546073913574, 1819.7841796875)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 5.650546073913574, 1819.7841796875)) --Under Water
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(-7894.61767578125, 5545.8349609375, -380.29119873046875)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.61767578125, 5545.8349609375, -380.29119873046875)) --Sky2
+        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude > (Vector3.new(-4607.82275, 872.54248, -1667.55688)-p.Position).Magnitude then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688)) --Sky1
+        end
+    end
                 BypassTP(p)
     --Bypass[]
         local Distance = (p.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
