@@ -1661,14 +1661,14 @@ end
 spawn(function()
     while wait(.1) do
         pcall(function()
-            Enble.Text = "Total : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG))
+            Total.Text = "Total : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
         end)
     end
 end)
 spawn(function()
     while wait(.1) do
         pcall(function()
-            Total.Text = "Enble : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
+            Enble.Text = "Enble : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG))
         end)
     end
 end)
