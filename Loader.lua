@@ -1648,41 +1648,27 @@ Name.Text = "@"..game.Players.LocalPlayer.Name.." | "..game.Players.LocalPlayer.
 if FG == nil then
     FG = game:GetService("Players").LocalPlayer.Data.Fragments.Value 
 end
-function ConvertValueToString(value)
-    if value >= 1000000 then
-        local m = math.floor(value / 1000000)
-        local k = math.floor((value % 1000000) / 10000) / 100
-        if k == 0 then
-            return string.format("%dM", m)
-        elseif k < 10 then
-            return string.format("%.2fM", m + k)
-        else
-            return string.format("%.1fM", m + k)
-        end
-    elseif value >= 1000 then
-        local k = math.floor(value / 1000)
-        local remain = math.floor(value % 1000)
-        if remain == 0 then
-            return string.format("%dk", k)
-        else
-            return string.format("%d.%dk", k, remain)
-        end
+function formatNumber(num)
+    if num >= 1000000 then
+        return string.format("%.2fM", num / 1000000)
+    elseif num >= 1000 then
+        return string.format("%.2fK", num / 1000)
     else
-        return tostring(value)
+        return tostring(num)
     end
 end
 
 spawn(function()
     while wait(.1) do
         pcall(function()
-            Enble.Text = "Total : "..tostring(ConvertValueToString(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG))
+            Enble.Text = "Total : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG))
         end)
     end
 end)
 spawn(function()
     while wait(.1) do
         pcall(function()
-            Total.Text = "Enble : "..tostring(ConvertValueToString(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
+            Total.Text = "Enble : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
         end)
     end
 end)
