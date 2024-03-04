@@ -1415,189 +1415,130 @@ spawn(function()
 	end
 end)
 
-local UIFRAMGMENT = Instance.new("ScreenGui")
-local Main = Instance.new("Frame")
-local MainCorner = Instance.new("UICorner")
-local DummyHub = Instance.new("TextLabel")
-local _ = Instance.new("Frame")
-local Enble = Instance.new("TextLabel")
-local Total = Instance.new("TextLabel")
-local Doing = Instance.new("TextLabel")
-local Elapsed = Instance.new("TextLabel")
-local Profile = Instance.new("ImageLabel")
-local UICorner = Instance.new("UICorner")
-local Name = Instance.new("TextLabel")
-local Discord = Instance.new("TextButton")
-local UICorner_2 = Instance.new("UICorner")
-local CloseUI = Instance.new("ImageButton")
-local UICorner_3 = Instance.new("UICorner")
-local WSB = Instance.new("TextButton")
+local Notify_DM = Instance.new("ScreenGui")
+local NotifyList = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+Notify_DM.Name = "Notify_DM"
+Notify_DM.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Notify_DM.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
---Properties:
+NotifyList.Name = "NotifyList"
+NotifyList.Parent = Notify_DM
+NotifyList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NotifyList.BackgroundTransparency = 1.000
+NotifyList.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NotifyList.BorderSizePixel = 0
+NotifyList.Position = UDim2.new(0.780645132, 0, 0, 0)
+NotifyList.Size = UDim2.new(0, 190, 0, 504)
 
-UIFRAMGMENT.Name = "UI FRAMGMENT"
-UIFRAMGMENT.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-UIFRAMGMENT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+UIListLayout.Parent = NotifyList
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+UIListLayout.Padding = UDim.new(0, 5)
 
-Main.Name = "Main"
-Main.Parent = UIFRAMGMENT
-Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Main.BorderSizePixel = 0
-Main.LayoutOrder = -5
-Main.Position = UDim2.new(0.350071907, 0, 0.321428567, 0)
-Main.Size = UDim2.new(0, 300, 0, 180)
-Main.Style = Enum.FrameStyle.RobloxSquare
+local Tw = game:GetService("TweenService")
+local Tf = TweenInfo.new(0.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 
-MainCorner.Name = "MainCorner"
-MainCorner.Parent = Main
+Notify = {}
+function Notify.new(Title,SupTitle,Sec)
 
-DummyHub.Name = "DummyHub"
-DummyHub.Parent = Main
-DummyHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DummyHub.BackgroundTransparency = 1.000
-DummyHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
-DummyHub.BorderSizePixel = 0
-DummyHub.Position = UDim2.new(0.0270000007, 0, 0.00999999978, 0)
-DummyHub.Size = UDim2.new(0, 269, 0, 19)
-DummyHub.Font = Enum.Font.FredokaOne
-DummyHub.Text = "Dummy Hub - Fully Fragment"
-DummyHub.TextColor3 = Color3.fromRGB(255, 255, 255)
-DummyHub.TextSize = 20.000
+    local NotifyTemple = Instance.new("Frame")
+    local CornerTemple = Instance.new("UICorner")
+    local Frame = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local Close = Instance.new("TextButton")
+    local Main = Instance.new("TextLabel")
+    local Sup = Instance.new("TextLabel")
 
-_.Name = "_"
-_.Parent = Main
-_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-_.BorderColor3 = Color3.fromRGB(0, 0, 0)
-_.BorderSizePixel = 0
-_.Position = UDim2.new(0, 0, 0.150000006, 0)
-_.Size = UDim2.new(0, 285, 0, 3)
+    NotifyTemple.Name = "NotifyTemple"
+    NotifyTemple.Parent = NotifyList
+    NotifyTemple.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    NotifyTemple.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    NotifyTemple.BorderSizePixel = 0
+    NotifyTemple.Position = UDim2.new(0.264976948, 0, 0.390873015, 0)
+    NotifyTemple.Size = UDim2.new(0, 0, 0, 40)
 
-Enble.Name = "Enble"
-Enble.Parent = Main
-Enble.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Enble.BackgroundTransparency = 1.000
-Enble.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Enble.BorderSizePixel = 0
-Enble.Position = UDim2.new(0, 0, 0.178000003, 0)
-Enble.Size = UDim2.new(0, 285, 0, 30)
-Enble.Font = Enum.Font.FredokaOne
-Enble.Text = "Enble : "
-Enble.TextColor3 = Color3.fromRGB(255, 255, 255)
-Enble.TextSize = 14.000
-Enble.TextXAlignment = Enum.TextXAlignment.Left
+    CornerTemple.Name = "CornerTemple"
+    CornerTemple.Parent = NotifyTemple
 
-Total.Name = "Total"
-Total.Parent = Main
-Total.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Total.BackgroundTransparency = 1.000
-Total.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Total.BorderSizePixel = 0
-Total.Position = UDim2.new(0, 0, 0.300000012, 0)
-Total.Size = UDim2.new(0, 285, 0, 30)
-Total.Font = Enum.Font.FredokaOne
-Total.Text = "Total : "
-Total.TextColor3 = Color3.fromRGB(255, 255, 255)
-Total.TextSize = 14.000
-Total.TextXAlignment = Enum.TextXAlignment.Left
+    Frame.Parent = NotifyTemple
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 204, 0)
+    Frame.BorderColor3 = Color3.fromRGB(255, 255, 0)
+    Frame.BorderSizePixel = 0
+    Frame.Size = UDim2.new(0, 6, 0, 40)
+    Frame.ZIndex = 2
 
-Doing.Name = "Doing"
-Doing.Parent = Main
-Doing.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Doing.BackgroundTransparency = 1.000
-Doing.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Doing.BorderSizePixel = 0
-Doing.Position = UDim2.new(0, 0, 0.430000007, 0)
-Doing.Size = UDim2.new(0, 285, 0, 30)
-Doing.Font = Enum.Font.FredokaOne
-Doing.Text = "Doing : "
-Doing.TextColor3 = Color3.fromRGB(255, 255, 255)
-Doing.TextSize = 14.000
-Doing.TextXAlignment = Enum.TextXAlignment.Left
+    UICorner.Parent = Frame
 
-Elapsed.Name = "Elapsed"
-Elapsed.Parent = Main
-Elapsed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Elapsed.BackgroundTransparency = 1.000
-Elapsed.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Elapsed.BorderSizePixel = 0
-Elapsed.Position = UDim2.new(0, 0, 0.550000012, 0)
-Elapsed.Size = UDim2.new(0, 285, 0, 30)
-Elapsed.Font = Enum.Font.FredokaOne
-Elapsed.Text = "Times : "
-Elapsed.TextColor3 = Color3.fromRGB(255, 255, 255)
-Elapsed.TextSize = 14.000
-Elapsed.TextXAlignment = Enum.TextXAlignment.Left
+    Close.Name = "Close"
+    Close.Parent = NotifyTemple
+    Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Close.BackgroundTransparency = 1.000
+    Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Close.BorderSizePixel = 0
+    Close.Position = UDim2.new(0.837499976, 0, 0.25, 0)
+    Close.Size = UDim2.new(0, 20, 0, 20)
+    Close.Font = Enum.Font.FredokaOne
+    Close.Text = "X"
+    Close.TextColor3 = Color3.fromRGB(255, 204, 0)
+    Close.TextScaled = true
+    Close.TextSize = 14.000
+    Close.TextWrapped = true
 
-Profile.Name = "Profile"
-Profile.Parent = Main
-Profile.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Profile.BackgroundTransparency = 1.000
-Profile.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Profile.BorderSizePixel = 0
-Profile.Position = UDim2.new(0.579999983, 0, 0.340000004, 0)
-Profile.Size = UDim2.new(0, 122, 0, 110)
-Profile.Image = "rbxassetid://16384956178"
+    Main.Name = "Main"
+    Main.Parent = NotifyTemple
+    Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Main.BackgroundTransparency = 1.000
+    Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Main.BorderSizePixel = 0
+    Main.Position = UDim2.new(0.0375000015, 0, 0, 0)
+    Main.Size = UDim2.new(0, 148, 0, 19)
+    Main.Font = Enum.Font.FredokaOne
+    Main.Text = Title
+    Main.TextColor3 = Color3.fromRGB(255, 204, 0)
+    Main.TextSize = 12.000
+    Main.TextXAlignment = Enum.TextXAlignment.Left
 
-UICorner.Parent = Profile
+    Sup.Name = "Sup"
+    Sup.Parent = NotifyTemple
+    Sup.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Sup.BackgroundTransparency = 1.000
+    Sup.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Sup.BorderSizePixel = 0
+    Sup.Position = UDim2.new(0.0375000648, 0, 0.474999994, 0)
+    Sup.Size = UDim2.new(0, 148, 0, 19)
+    Sup.Font = Enum.Font.FredokaOne
+    Sup.Text = SupTitle
+    Sup.TextColor3 = Color3.fromRGB(255, 250, 99)
+    Sup.TextSize = 12.000
+    Sup.TextXAlignment = Enum.TextXAlignment.Left
 
-Name.Name = "Name"
-Name.Parent = Main
-Name.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Name.BackgroundTransparency = 1.000
-Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Name.BorderSizePixel = 0
-Name.Position = UDim2.new(0, 0, 0.178000003, 0)
-Name.Size = UDim2.new(0, 285, 0, 30)
-Name.Font = Enum.Font.FredokaOne
-Name.Text = "@Name | DisplayName"
-Name.TextColor3 = Color3.fromRGB(255, 255, 255)
-Name.TextSize = 14.000
-Name.TextXAlignment = Enum.TextXAlignment.Right
+    Close.MouseButton1Click:Connect(function()
+        Tw:Create(NotifyTemple,Tf,{BackgroundTransparency = 1}):Play()
+        Tw:Create(Main,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Sup,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Close,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Frame,Tf,{BackgroundTransparency = 1}):Play()
+        task.wait(.27)
+        NotifyTemple:Destroy()
+    end)
 
-Discord.Name = "Discord"
-Discord.Parent = Main
-Discord.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Discord.BackgroundTransparency = 0.600
-Discord.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Discord.BorderSizePixel = 0
-Discord.Position = UDim2.new(0, 30, 0.779999971, 0)
-Discord.Size = UDim2.new(0, 100, 0, 35)
-Discord.Font = Enum.Font.FredokaOne
-Discord.Text = "Discord"
-Discord.TextColor3 = Color3.fromRGB(255, 255, 255)
-Discord.TextSize = 14.000
+    Tw:Create(NotifyTemple,Tf,{Size = UDim2.new(0, 187, 0, 40)}):Play()
 
-UICorner_2.Parent = Discord
+    task.spawn(function()
+        task.wait(Sec)
+        Tw:Create(NotifyTemple,Tf,{BackgroundTransparency = 1}):Play()
+        Tw:Create(Main,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Sup,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Close,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Frame,Tf,{BackgroundTransparency = 1}):Play()
+        task.wait(.27)
+        NotifyTemple:Destroy()
+    end)
 
-CloseUI.Name = "Close UI"
-CloseUI.Parent = UIFRAMGMENT
-CloseUI.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-CloseUI.BackgroundTransparency = 0.200
-CloseUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
-CloseUI.BorderSizePixel = 0
-CloseUI.Position = UDim2.new(0.063000001, 0, 0.169, 0)
-CloseUI.Size = UDim2.new(0, 50, 0, 50)
-CloseUI.Image = "rbxassetid://16384956178"
-
-UICorner_3.Parent = CloseUI
-
-WSB.Name = "WSB"
-WSB.Parent = UIFRAMGMENT
-WSB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-WSB.BackgroundTransparency = 1.000
-WSB.BorderColor3 = Color3.fromRGB(0, 0, 0)
-WSB.BorderSizePixel = 0
-WSB.Position = UDim2.new(0.318622172, 0, 0.321428567, 0)
-WSB.Size = UDim2.new(0, 20, 0, 20)
-WSB.Font = Enum.Font.SourceSans
-WSB.Text = "🔴"
-WSB.TextColor3 = Color3.fromRGB(0, 0, 0)
-WSB.TextScaled = true
-WSB.TextSize = 14.000
-WSB.TextWrapped = true
-
-Name.Text = "@"..game.Players.LocalPlayer.Name.." | "..game.Players.LocalPlayer.DisplayName
+    return Notify
+end
+Notify.new("Dummy Hub | Loading","Auto Farm Fragment",5)
 if FG == nil then
     FG = game:GetService("Players").LocalPlayer.Data.Fragments.Value 
 end
@@ -1610,53 +1551,12 @@ function formatNumber(num)
         return tostring(num)
     end
 end
-
 spawn(function()
-    while wait(.1) do
+    while wait(1) do
         pcall(function()
-            Total.Text = "Total : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
+            Notify.new("Dummy Hub | Doing",tostring(tonumber(string.match(tostring(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("CakePrinceSpawner")), "%d+"))),1)
+            Notify.new("Dummy Hub | Total",tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),1)
+            Notify.new("Dummy Hub | Enble",tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG)),1)
         end)
-    end
-end)
-spawn(function()
-    while wait(.1) do
-        pcall(function()
-            Enble.Text = "Enble : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG))
-        end)
-    end
-end)
-spawn(function()
-    while wait() do
-        pcall(function()
-            Doing.Text = "Doing : ".._G.Doing
-        end)
-    end
-end)
-spawn(function()
-    while wait() do
-        pcall(function()
-            local scripttime = game.Workspace.DistributedGameTime
-            local seconds = scripttime % 60
-            local minutes = math.floor(scripttime / 60 % 60)
-            local hours = math.floor(scripttime / 3600)
-            local tempo = string.format("%02d:%02d:%02d", hours, minutes, seconds)
-            Elapsed.Text = "Times : " .. tostring(tempo)
-        end)
-    end
-end)
-WSB.MouseButton1Click:Connect(function()
-    if WSB.Text == "🔴" then
-        WSB.Text = "🟢"
-        game:GetService("RunService"):Set3dRenderingEnabled(false)
-    elseif WSB.Text == "🟢" then
-        WSB.Text = "🔴"
-        game:GetService("RunService"):Set3dRenderingEnabled(true)
-    end
-end)
-CloseUI.MouseButton1Click:Connect(function()
-    if Main.Visible == false then
-        Main.Visible = true
-    else
-        Main.Visible = false
     end
 end)
