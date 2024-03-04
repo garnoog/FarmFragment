@@ -1552,11 +1552,11 @@ function formatNumber(num)
     end
 end
 spawn(function()
-    while wait(1) do
+    while wait(1.5) do
         pcall(function()
-            Notify.new("Dummy Hub | Doing",tostring(tonumber(string.match(tostring(game.ReplicatedStorage.Remotes.CommF_:InvokeServer("CakePrinceSpawner")), "%d+"))),1)
-            Notify.new("Dummy Hub | Total",tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),1)
-            Notify.new("Dummy Hub | Enble",tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG)),1)
+            Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,1)
+            Notify.new("Dummy Hub | Total","Total:"..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),1)
+            Notify.new("Dummy Hub | Enble","Enble:"..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG)),1)
         end)
     end
 end)
