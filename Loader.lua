@@ -1575,7 +1575,7 @@ function SmallNotify.new(Title,Sec)
     Close.BackgroundTransparency = 1.000
     Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
     Close.BorderSizePixel = 0
-    Close.Position = UDim2.new(0.0375000015, 0, 0.25, 0)
+    Close.Position = UDim2.new(0.837499976, 0, 0, 0)
     Close.Size = UDim2.new(0, 10, 0, 10)
     Close.Font = Enum.Font.FredokaOne
     Close.Text = "X"
