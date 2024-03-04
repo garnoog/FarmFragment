@@ -1555,8 +1555,8 @@ spawn(function()
     while wait(1.5) do
         pcall(function()
             Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,1)
-            Notify.new("Dummy Hub | Total","Total:"..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),1)
-            Notify.new("Dummy Hub | Enble","Enble:"..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG)),1)
+            Notify.new("Dummy Hub | Total","Total: "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),1)
+            Notify.new("Dummy Hub | Enble","Enble: "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG)),1)
         end)
     end
 end)
