@@ -793,7 +793,7 @@ spawn(function()
                                     debug.setupvalue(AC.attack, 6, u9)
                                     debug.setupvalue(AC.attack, 4, u7)
                                     debug.setupvalue(AC.attack, 7, u10)
-                                    wait(0)
+                                    task.wait(0.01)
                                     pcall(function()
                                         if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
                                             AC.animator.anims.basic[1]:Play()
@@ -1538,6 +1538,90 @@ function Notify.new(Title,SupTitle,Sec)
 
     return Notify
 end
+
+SmallNotify = {}
+function SmallNotify.new(Title,Sec)
+
+    local NotifyTemple = Instance.new("Frame")
+    local CornerTemple = Instance.new("UICorner")
+    local Frame = Instance.new("Frame")
+    local UICorner = Instance.new("UICorner")
+    local Close = Instance.new("TextButton")
+    local Main = Instance.new("TextLabel")
+
+    NotifyTemple.Name = "NotifyTemple"
+    NotifyTemple.Parent = NotifyList
+    NotifyTemple.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    NotifyTemple.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    NotifyTemple.BorderSizePixel = 0
+    NotifyTemple.Position = UDim2.new(0.264976948, 0, 0.390873015, 0)
+    NotifyTemple.Size = UDim2.new(0, 0, 0, 20)
+
+    CornerTemple.Name = "CornerTemple"
+    CornerTemple.Parent = NotifyTemple
+
+    Frame.Parent = NotifyTemple
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 204, 0)
+    Frame.BorderColor3 = Color3.fromRGB(255, 255, 0)
+    Frame.BorderSizePixel = 0
+    Frame.Size = UDim2.new(0, 6, 0, 20)
+    Frame.ZIndex = 2
+
+    UICorner.Parent = Frame
+
+    Close.Name = "Close"
+    Close.Parent = NotifyTemple
+    Close.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Close.BackgroundTransparency = 1.000
+    Close.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Close.BorderSizePixel = 0
+    Close.Position = UDim2.new(0.837499976, 0, 0.25, 0)
+    Close.Size = UDim2.new(0, 20, 0, 20)
+    Close.Font = Enum.Font.FredokaOne
+    Close.Text = "X"
+    Close.TextColor3 = Color3.fromRGB(255, 204, 0)
+    Close.TextScaled = true
+    Close.TextSize = 14.000
+    Close.TextWrapped = true
+
+    Main.Name = "Main"
+    Main.Parent = NotifyTemple
+    Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Main.BackgroundTransparency = 1.000
+    Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+    Main.BorderSizePixel = 0
+    Main.Position = UDim2.new(0.0375000015, 0, 0, 0)
+    Main.Size = UDim2.new(0, 148, 0, 20)
+    Main.Font = Enum.Font.FredokaOne
+    Main.Text = Title
+    Main.TextColor3 = Color3.fromRGB(255, 204, 0)
+    Main.TextSize = 12.000
+    Main.TextXAlignment = Enum.TextXAlignment.Left
+
+    Close.MouseButton1Click:Connect(function()
+        Tw:Create(NotifyTemple,Tf,{BackgroundTransparency = 1}):Play()
+        Tw:Create(Main,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Close,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Frame,Tf,{BackgroundTransparency = 1}):Play()
+        task.wait(.27)
+        NotifyTemple:Destroy()
+    end)
+
+    Tw:Create(NotifyTemple,Tf,{Size = UDim2.new(0, 187, 0, 20)}):Play()
+
+    task.spawn(function()
+        task.wait(Sec)
+        Tw:Create(NotifyTemple,Tf,{BackgroundTransparency = 1}):Play()
+        Tw:Create(Main,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Close,Tf,{TextTransparency = 1}):Play()
+        Tw:Create(Frame,Tf,{BackgroundTransparency = 1}):Play()
+        task.wait(.27)
+        NotifyTemple:Destroy()
+    end)
+
+    return SmallNotify
+end
+
 Notify.new("Dummy Hub | Loading","Auto Farm Fragment",5)
 if FG == nil then
     FG = game:GetService("Players").LocalPlayer.Data.Fragments.Value 
@@ -1554,9 +1638,15 @@ end
 spawn(function()
     while wait(1.5) do
         pcall(function()
+            local scripttime = game.Workspace.DistributedGameTime
+            local seconds = scripttime % 60
+            local minutes = math.floor(scripttime / 60 % 60)
+            local hours = math.floor(scripttime / 3600)
+            local tempo = string.format("%02d:%02d:%02d", hours, minutes, seconds)
             Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,1)
             Notify.new("Dummy Hub | Total","Total: "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)),1)
             Notify.new("Dummy Hub | Enble","Enble: "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG)),1)
+            SmallNotify.new("Dummy Hub | "..tostring(tempo),1)
         end)
     end
 end)
