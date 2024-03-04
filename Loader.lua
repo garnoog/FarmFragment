@@ -1581,7 +1581,7 @@ function SmallNotify.new(Title,Sec)
     Close.Text = "X"
     Close.TextColor3 = Color3.fromRGB(255, 204, 0)
     Close.TextScaled = true
-    Close.TextSize = 14.000
+    Close.TextSize = 10.000
     Close.TextWrapped = true
 
     Main.Name = "Main"
