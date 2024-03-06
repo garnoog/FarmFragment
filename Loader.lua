@@ -793,7 +793,7 @@ spawn(function()
                                     debug.setupvalue(AC.attack, 6, u9)
                                     debug.setupvalue(AC.attack, 4, u7)
                                     debug.setupvalue(AC.attack, 7, u10)
-                                    task.wait(0.01)
+                                    wait(0)
                                     pcall(function()
                                         if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
                                             AC.animator.anims.basic[1]:Play()
