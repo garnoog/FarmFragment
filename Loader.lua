@@ -793,7 +793,7 @@ spawn(function()
                                     debug.setupvalue(AC.attack, 6, u9)
                                     debug.setupvalue(AC.attack, 4, u7)
                                     debug.setupvalue(AC.attack, 7, u10)
-                                    wait(0)
+                                    task.wait(0.01)
                                     pcall(function()
                                         if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
                                             AC.animator.anims.basic[1]:Play()
@@ -1648,5 +1648,34 @@ spawn(function()
             Notify.new("Dummy Hub | Enble","Enble: "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value-FG)),1)
             SmallNotify.new("Dummy Hub | "..tostring(tempo),1)
         end)
+    end
+end)
+
+local AFK_TIMEOUT = 60
+local afkTimer = 0
+local isAFK = false
+
+local function resetAFKTimer()
+    afkTimer = 0
+    isAFK = false
+end
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        resetAFKTimer()
+    end
+end)
+
+spawn(function()
+    while true do
+        task.wait(1)
+        afkTimer = afkTimer + 1
+        
+        if afkTimer >= AFK_TIMEOUT then
+            isAFK = true
+            game.Workspace.Characters[game.Players.LocalPlayer.Name].Head:Destroy()
+        else
+            isAFK = false
+        end
     end
 end)
